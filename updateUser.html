@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>USER Registration</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+    <!-- <form method="post" action="/addname">
+      <label>Enter Your Name</label><br>
+      <input type="text" name="firstName" placeholder="Enter first name..." required>
+      <input type="text" name="lastName" placeholder="Enter last name..." required>
+      <input type="submit" value="Add Name">
+    </form> -->    
+    <!--break-->
+<div class="container">      
+    
+        <div class="form-group">
+                <div class="alert alert-danger" role="alert" id="msgDiv" ng-model="result"></div>
+              </div>          
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Update User</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/accounts/login/">Sign In</a></div>
+                </div>  
+                <div class="panel-body" >
+                    <form method="post">
+                        <input type='hidden' name='csrfmiddlewaretoken' value='' id="recordId" />
+                        <form  class="form-horizontal" method="post" >
+                                                  
+                            <div id="div_id_username" class="form-group required">
+                                <label for="id_username" class="control-label col-md-4  requiredField"> Username<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md  textinput textInput form-control" id="name" name="name" type="text" placeholder="Full Name" autofocus=""
+                                     style="margin-bottom: 10px" />
+                                </div>
+                            </div>
+                            <div id="div_id_email" class="form-group required">
+                                <label for="id_email" class="control-label col-md-4  requiredField"> E-mail<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input class="input-md emailinput form-control" id="email" name="email" type="email" placeholder="Email" style="margin-bottom: 10px"/>
+                                </div>     
+                            </div>
+                            <div id="div_id_password1" class="form-group required">
+                                <label for="id_password1" class="control-label col-md-4  requiredField">Password<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "> 
+                                    <input class="input-md textinput textInput form-control" id="password" name="password" type="password" placeholder="Password" style="margin-bottom: 10px"/>
+                                </div>
+                            </div>
+                            <div id="div_id_password2" class="form-group required">
+                                 <label for="id_password2" class="control-label col-md-4  requiredField"> Re:password<span class="asteriskField">*</span> </label>
+                                 <div class="controls col-md-8 ">
+                                    <input class="input-md textinput textInput form-control" id="cpassword" cpassword="cpassword" type="password" placeholder="Confirm password"  style="margin-bottom: 10px"/>
+                                </div>
+                            </div>
+                            <div id="div_id_name" class="form-group required"> 
+                                <label for="id_name" class="control-label col-md-4  requiredField"> DOB <span class="asteriskField">*</span> </label> 
+                                <div class="controls col-md-8 "> 
+                                    <input class="input-md textinput textInput form-control" id="dob" name="dob" type="date" style="margin-bottom: 10px"/>
+                                </div>
+                            </div>
+                            <div id="div_id_gender" class="form-group required">
+                                <label for="id_gender"  class="control-label col-md-4  requiredField"> Gender<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                        <label class="radio-inline"><input id="femaleRadio" name="gender" type="radio" value="Female" style="margin-bottom: 10px">&nbsp;Female</label>
+                                        <label class="radio-inline"><input id="maleRadio" name="gender" type="radio" value="Male" style="margin-bottom: 10px">&nbsp;Male
+                                        </label>
+                                </div>
+                            </div>
+                            <div id="div_id_company" class="form-group required"> 
+                                <label for="id_company" class="control-label col-md-4  requiredField"> company name<span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 "> 
+                                        <select class="form-control" id="country" name="country" style="margin-bottom: 10px">
+                                                <option value="">Please Select</option>
+                                                <option>USA</option>
+                                                <option>United Kingdom </option>
+                                                <option>Germany</option>
+                                                <option>Denmark</option>
+                                                <option>Ecuador</option>
+                                                <option>Canada</option>
+                                                <option>France</option>
+                                                <option>Others</option>
+                                              </select>
+                                </div>
+                            </div> 
+                            <div id="div_id_catagory" class="form-group required">
+                                    <label for="id_gender"  class="control-label col-md-4  requiredField"> Meal Preference<span class="asteriskField">*</span> </label>
+                                    <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                            <label><input id="calorieCheckbox" type="checkbox" value="Calorie" name="preference" style="margin-bottom: 10px">&nbsp;Low
+                                                calorie</label>
+                                                <label><input id="saltCheckbox" type="checkbox" value="Salt" name="preference" style="margin-bottom: 10px">&nbsp;Low salt</label>
+                                    </div>
+                            </div>                            
+                            <div class="form-group">
+                                <div class="controls col-md-offset-4 col-md-8 ">
+                                    <div id="div_id_terms" class="checkbox required">
+                                        <label for="id_terms" class=" requiredField">
+                                                <input id="terms" type="checkbox" value="yes" name="terms" style="margin-bottom: 10px">
+                                             Agree with the terms and conditions
+                                        </label>
+                                    </div> 
+                                        
+                                </div>
+                            </div> 
+                            <div class="form-group"> 
+                                <div class="aab controls col-md-4 "></div>
+                                <div class="controls col-md-8 ">
+                                    <input type="submit" id="update_btn" name="Update" value="Update" class="btn btn-primary btn btn-info" />
+                                    or <input type="button"  name="Cancel" value="Cancel" class="btn btn btn-primary" id="btn_cancel" />
+                                </div>
+                            </div> 
+                                
+                        </form>
+    
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./js/updateUser.js"></script>
